@@ -1,0 +1,10 @@
+<launch>
+
+
+<node name="vfg_stop" pkg="vfh" type="vfh_stop" output="screen">
+<param name="trigger" type="bool" value="true"/>
+<!--param name="input_vel_topic" type="string" value="cmd_vel"/>
+<param name="input_laser_topic" type="string" value="scan"/>
+<param name="output_vel_topic" type="string" value="velocity"/-->
+</node>
+</launch>
