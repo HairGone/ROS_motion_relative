@@ -10,7 +10,7 @@ class monitor
 public:
 geometry_msgs::Twist vel;
 ros::NodeHandle nh;
-ros::Publisher vel_pub;
+//ros::Publisher vel_pub;
 void setup(ros::NodeHandle &nh);
 
 ros::Subscriber laser_sub;
@@ -31,7 +31,7 @@ void _Stop();
 };
 //启动函数，初始化订阅发布功能
 void monitor::setup(ros::NodeHandle &nh){
-	vel_pub=nh.advertise<geometry_msgs::Twist>("/velocity",5);
+	//vel_pub=nh.advertise<geometry_msgs::Twist>("/velocity",5);
 	vel_sub=nh.subscribe<geometry_msgs::Twist>("cmd_vel",1,&monitor::vel_callback,this);//注意，这里的回调函数没表类型，可能会报错。
 	
 	if(Is_Monitor_on){
@@ -66,9 +66,9 @@ void monitor::laser_callback(const sensor_msgs::LaserScan::ConstPtr &msg){
     {
          if(msg->ranges[i]<0.4&&(msg->ranges[i]!=std::numeric_limits<float>::infinity())){
             i++;
-//ROS_INFO("dangerous angle is %d, and range is %f",i,msg->ranges[i]); //this is monitoring line
+ROS_INFO("dangerous angle is %d, and range is %f",i,msg->ranges[i]); //this is monitoring line
             _Is_Warn=true;
-            break;
+            //break;
       }
          else
          i++;
@@ -92,11 +92,12 @@ void monitor::_Speed_Control()
 {
 ROS_ERROR("Warning!! Must STOP!!");
     _Stop();
-vel_pub.publish(vel);}
+//vel_pub.publish(vel);
+}
     else{
 ROS_INFO("GO AHEAD~~");
     _Pass_Vel();}
-vel_pub.publish(vel);;
+//vel_pub.publish(vel);;
 
 }
 

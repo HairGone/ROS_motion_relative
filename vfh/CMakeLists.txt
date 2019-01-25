@@ -19,6 +19,15 @@ add_executable(vfh src/lidar_sub.cpp)
 target_link_libraries(vfh ${catkin_LIBRARIES})
 add_executable(vfh_stop src/vfh_stop.cpp)
 target_link_libraries(vfh_stop ${catkin_LIBRARIES})
+
+add_executable(obstacle_detecter src/obstacle_detecter.cpp)
+target_link_libraries(obstacle_detecter ${catkin_LIBRARIES})
+
+add_executable(angle_print src/angle_print.cpp)
+target_link_libraries(angle_print ${catkin_LIBRARIES})
+
+add_executable(speed_cmd src/speed_cmd.cpp)
+target_link_libraries(speed_cmd ${catkin_LIBRARIES})
 ## Uncomment this if the package has a setup.py. This macro ensures
 ## modules and global scripts declared therein get installed
 ## See http://ros.org/doc/api/catkin/html/user_guide/setup_dot_py.html

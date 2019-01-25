@@ -1,0 +1,7 @@
+<launch>
+<node name="avoidance" pkg="vfh" type="speed_cmd" output="screen">
+<param name="trigger" type="bool" value="true"/>
+<param name="acc" type="double" value="2"/>
+<param name="range" type="double" value="0.8"/>
+</node>
+</launch>
