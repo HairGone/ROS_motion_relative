@@ -1,0 +1,4 @@
+base_controller.bk1 is the original version.
+bk2 is final version.
+py is test version which is used to examine whether robot_pose_ekf is succeed.
+notice in /node/arduino_node.py, around 143 line, there is a change of function named self.basecontroller(,,,), which delete one param.
